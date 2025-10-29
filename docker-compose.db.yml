@@ -16,9 +16,9 @@ services:
       MYSQL_INIT_COMMAND: "SET GLOBAL host_cache_size=0"
 
     volumes:
-      - shared_mysql_data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
     networks:
-      - app_network
+      - paekom-network
     restart: always
     deploy:
       resources:
@@ -28,9 +28,9 @@ services:
           memory: 512M
 
 volumes:
-  shared_mysql_data:
+  mysql_data:
     external: true
 
 networks:
-  app_network:
+  paekom-network:
     external: true
